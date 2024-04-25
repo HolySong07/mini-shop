@@ -18,7 +18,7 @@
 				</nav>
 			</div>
 			<div class="header__right-block">
-				<button class="btn btn_white">Связаться с нами</button>
+				<button data-modal class="btn btn_white">Связаться с нами</button>
 			</div>
 		</header>
 		<div class="sidepanel">
@@ -97,7 +97,7 @@
 					</div>
 				</div>
 				<div class="offer__action">
-					<button class="btn btn_dark">Связаться с нами</button>
+					<button data-modal class="btn btn_dark">Связаться с нами</button>
 				</div>
 			</div>
 			<div class="container">
@@ -330,55 +330,7 @@
 		<button class="wBtn2">click</button>
 
 		<footer class="footer">
-			<input
-				type="text"
-				value="10"
-				size="2"
-				onkeydown="this.style.width = ((this.value.length + 3) * 8) + 'px';"
-			/>
-
-
-
-			<input
-				type="text"
-				value="10"
-				class="moon"
-				size="2"
-				oninput="this.size=Math.max(this.value.length, 9)"
-			/>
-
-			<style>
-				input {
-					text-align: center;
-					padding: 0 8px;
-				}
-			</style>
-
-			<script>
-				oninput = "this.size=Math.max(this.value.length, 8)";
-				function resizeInput(input) {
-					let hiddenSpan = document.createElement("span");
-					hiddenSpan.style.visibility = "hidden";
-					hiddenSpan.style.position = "absolute";
-					hiddenSpan.textContent = input.value || input.placeholder;
-
-					document.body.appendChild(hiddenSpan);
-					let newWidth = Math.max(hiddenSpan.scrollWidth, 8);
-					input.style.width = `${newWidth}px`;
-
-					document.body.removeChild(hiddenSpan);
-				}
-
-				document.querySelector(".moon").addEventListener("input", function () {
-					resizeInput(this);
-				});
-
-				$(".moon").on("input", function () {
-					resizeInput($(this));
-				});
-
-			</script>
-
+			
 			<div class="container">
 				<div class="social">
 					<div class="subtitle">Мы в социальных сетях:</div>

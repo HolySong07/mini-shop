@@ -34,27 +34,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 		// tabs
 
-		// modal
-
-		let modal = document.querySelector(".modal"),
-		btnWhite = document.querySelector(".btn_white"),
-		modalClose = document.querySelector(".modal__close");
 		
-
-		/* const timerID = setTimeout(function() {
-			modal.style.display = "block";
-		}, 6000); */
-
-		modalClose.addEventListener("click", () => {
-			modal.style.display = "none";
-		});
-
-		btnWhite.addEventListener("click", () => {
-			modal.style.display = "block";
-			clearInterval(timerID);
-		});
-
-		// modal
 
 		// data
 
@@ -179,12 +159,64 @@ window.addEventListener("DOMContentLoaded", () => {
 		console.log(scrollBox.getBoundingClientRect());
 
 		const style = window.getComputedStyle(scrollBox);
-		console.log(style);
+		//console.log(style);
 		// 43
 
-		
-		
-	
+		// 44 modal
+		var modalBtn = document.querySelectorAll("[data-modal]");
+		var myModal = document.querySelector(".modal");
+		var closeModal = document.querySelector(".modal__close");
+
+		console.log(modalBtn);
+
+		modalBtn.forEach(item => {
+			item.addEventListener("click", openMyModal);
+		});
+
+		closeModal.addEventListener("click", () => {
+			closeMyModal();
+		});
+
+		function openMyModal() {
+			myModal.style.display = "block";
+			document.body.style.overflow = "hidden";
+			clearInterval(madalTimerID);
+		}
+
+		function closeMyModal() {
+			myModal.style.display = "none";
+			document.body.style.overflow = "auto";
+		}
+
+		myModal.addEventListener("click", (e) => {
+			if (e.target === myModal) {
+				closeMyModal();
+			}
+		});
+
+		document.addEventListener("keydown", (e) => {
+			if (e.code === "Escape") {
+				closeMyModal();
+			}
+		})
+
+		// 44 modal
+
+		// 45 modal
+
+		const madalTimerID = setTimeout(openMyModal, 5000);
+
+		function showModalByScroll() {
+			if (window.pageYOffset + document.documentElement.clientHeight >= document.documentElement.scrollHeight) {
+				openMyModal();
+				window.removeEventListener("scroll", showModalByScroll);
+			}
+		}
+
+		window.addEventListener("scroll", showModalByScroll);
+
+		// 45 modal
+
 });
 
 
